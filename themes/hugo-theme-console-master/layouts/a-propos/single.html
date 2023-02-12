@@ -1,0 +1,33 @@
+{{ define "main" }}
+<center><h2><a>{{ .Title }}</a></h2></center>
+
+<div class="image-grid">
+    {{ with .Site.GetPage "/a-propos" }}
+        {{ range first 3 (sort .Data.Pages "Date" "asc")}}
+            {{ $image := .Page.Resources.GetMatch .Params.image }}
+            {{ with $image }}
+                {{ $thumb := .Resize "3000x" }}
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
+            {{end}}
+            </a>
+        {{ end }}
+    {{ end }}
+    </div><br>
+
+{{ .Content }}
+{{ template "_internal/disqus.html" . }}
+
+<div class="image-grid">
+    {{ with .Site.GetPage "/a-propos" }}
+        {{ range last 2 (sort .Data.Pages "Date" "asc")}}
+            {{ $image := .Page.Resources.GetMatch .Params.image }}
+            {{ with $image }}
+                {{ $thumb := .Resize "2000x" }}
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
+            {{end}}
+            </a>
+        {{ end }}
+    {{ end }}
+    </div>
+
+{{ end }}
