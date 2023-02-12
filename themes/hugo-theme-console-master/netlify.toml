@@ -1,5 +1,5 @@
 [build]
-base = "exampleSite"
+base = "https://www.diapoesie-bijoux.com/"
 publish = "public"
 command = "hugo --gc --minify --themesDir ../../ -t repo -b $URL"
 
