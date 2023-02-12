@@ -1,6 +1,6 @@
 baseurl = "https://www.diapoesie-bijoux.com/"
 title = "diapoesie bijoux"
-theme = "hugo-theme-console"
+theme = "hugo-theme-console-master"
 languageCode = "en-us"
 
 [params]
